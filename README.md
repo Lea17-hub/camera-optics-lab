@@ -34,8 +34,8 @@ Build a simple optical imaging model in Python and study how an ideal point sour
 - Computed the diffraction-limited PSF using a 2D Fourier transform
 - Visualized the PSF in linear and logarithmic scale
 - Applied the PSF to a real grayscale image using convolution
-- Compared image blur for different aperture sizes
-- Observed that a smaller aperture produces a broader PSF and stronger diffraction blur
+- Compared image blur for two aperture radii: `0.35` and `0.08`
+- Observed that the smaller aperture (`radius = 0.08`) produces a broader PSF and stronger diffraction blur than the larger aperture (`radius = 0.35`)
 
 The aperture radius was varied while defocus was kept at zero, isolating the effect of diffraction.
 
