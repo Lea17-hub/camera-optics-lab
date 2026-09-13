@@ -14,7 +14,7 @@ Build a simple optical imaging model in Python and study how an ideal point sour
 
 - Why does a point source not remain a perfect point after passing through an optical system?
 - How do diffraction and defocus change the PSF?
-- How do aberrations degrade image quality?
+- How do different optical aberrations produce distinct PSF structures and image artifacts?
 - Which optical effects matter most for the final image?
 
 ## Planned Steps
@@ -22,7 +22,7 @@ Build a simple optical imaging model in Python and study how an ideal point sour
 1. Simulate an ideal diffraction-limited PSF
 2. Apply the PSF to a real image using convolution
 3. Add defocus
-4. Add optical aberrations
+4. Compare spherical aberration, coma, and astigmatism
 5. Compare image degradation quantitatively
 6. Explore basic image recovery
 
@@ -68,6 +68,51 @@ The aperture was kept fixed while only defocus was varied, isolating the effect 
 ![Defocus MSE](defocus_mse.png)
 
 The original image is the ideal input, while the in-focus image has already passed through the finite-aperture optical system and therefore includes diffraction-limited blur.
+
+### 03 — Optical Aberrations
+
+- Kept the baseline aperture fixed at `BASE_RADIUS = 0.35`
+- Added spherical aberration, coma, and astigmatism as pupil-plane phase errors
+- Compared how different aberrations modify the PSF
+- Applied aberrated PSFs to the same input image
+- Observed that different aberrations produce distinct image artifacts
+- Used a focus sweep to reveal the directional nature of astigmatism
+
+The aperture was kept fixed while the aberration type and strength were varied, allowing the characteristic PSF structures of different optical errors to be compared.
+
+**Optical aberration → PSF structure → Characteristic image degradation**
+
+#### Spherical Aberration
+
+Spherical aberration preserves circular symmetry but gradually redistributes energy away from the central peak.
+
+As the aberration increases, the central PSF becomes less concentrated and the surrounding ring structure becomes more pronounced.
+
+![Spherical PSF sweep](spherical_psf_sweep.png)
+
+![Spherical image sweep](spherical_image_sweep.png)
+
+#### Coma
+
+Coma breaks the circular symmetry of the PSF and produces a directional, comet-like structure.
+
+In the image domain, this appears as directional smearing rather than uniform blur.
+
+![Coma PSF sweep](coma_psf_sweep.png)
+
+![Coma image sweep](coma_image_sweep.png)
+
+#### Astigmatism
+
+Astigmatism causes the optical system to behave differently along two orthogonal directions.
+
+Its PSF develops strongly directional structures rather than remaining circularly symmetric.
+
+![Astigmatism PSF sweep](astigmatism_psf_sweep.png)
+
+A focus sweep was used to show the key signature of astigmatism: the two orthogonal directions reach their best focus at different image planes.
+
+![Astigmatism focus sweep](astigmatism_focus_sweep_image.png)
 
 ## Tools
 
