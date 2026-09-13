@@ -23,8 +23,9 @@ Build a simple optical imaging model in Python and study how an ideal point sour
 2. Apply the PSF to a real image using convolution
 3. Add defocus
 4. Compare spherical aberration, coma, and astigmatism
-5. Compare image degradation quantitatively
-6. Explore basic image recovery
+5. Add sensor noise and quantify combined image degradation
+6. Explore PSF-based image recovery
+7. Summarize the imaging pipeline, key findings, and limitations
 
 ## Current Progress
 
@@ -41,7 +42,7 @@ The aperture radius was varied while defocus was kept at zero, isolating the eff
 
 **Aperture size → Diffraction PSF → Image sharpness**
 
-## Example Result
+#### Aperture Comparison
 
 ![Aperture blur comparison](aperture_blur_comparison.png)
 
@@ -59,7 +60,7 @@ The aperture was kept fixed while only defocus was varied, isolating the effect 
 
 **Defocus → PSF change → Image degradation**
 
-## Example Result
+#### Defocus Results
 
 ![Defocus PSF sweep](defocus_psf_sweep.png)
 
@@ -114,6 +115,33 @@ A focus sweep was used to show the key signature of astigmatism: the two orthogo
 
 ![Astigmatism focus sweep](astigmatism_focus_sweep_image.png)
 
+## Next Steps
+
+### 04 — Sensor Noise & Image Recovery
+
+Extend the current optical model into a more complete computational imaging pipeline:
+
+**Optical system → PSF → Optical blur → Sensor noise → Measured image → Recovery**
+
+Planned experiments:
+
+- Add Gaussian read noise
+- Add Poisson / photon noise
+- Combine sensor noise with PSF-based optical blur
+- Compare noisy and noise-free image formation
+- Quantify degradation using image-quality metrics
+- Explore basic denoising and PSF-based deconvolution
+- Compare direct inverse filtering with more stable recovery methods such as Wiener deconvolution
+- Investigate the trade-off between recovering image detail and amplifying noise
+
+### Final — Key Findings and Limitations
+
+- Summarize the effects of aperture, defocus, and optical aberrations
+- Compare optical blur with sensor noise
+- Summarize what can and cannot be recovered from a degraded image
+- Select the most informative figures for the final README
+- Document model limitations and possible future extensions
+
 ## Tools
 
 - Python
@@ -124,4 +152,4 @@ A focus sweep was used to show the key signature of astigmatism: the two orthogo
 
 ## Status
 
-Work in progress.
+Work in progress. Possible future extensions include wavelength-dependent imaging, physically calibrated aberration coefficients, and axial effects such as depth of field.
