@@ -22,6 +22,21 @@ Build a simple optical imaging model in Python and study how an ideal point sour
 5. Compare image degradation quantitatively
 6. Explore basic image recovery
 
+## Current Progress
+
+### 01 — Ideal Diffraction-Limited PSF
+
+- Built a circular aperture model
+- Computed the diffraction-limited PSF using a 2D Fourier transform
+- Visualized the PSF in linear and logarithmic scale
+- Applied the PSF to a real grayscale image using convolution
+- Compared image blur for different aperture sizes
+- Observed that a smaller aperture produces a broader PSF and stronger diffraction blur
+
+## Example Result
+
+![Aperture blur comparison](figures/aperture_blur_comparison.png)
+
 ## Tools
 
 - Python
