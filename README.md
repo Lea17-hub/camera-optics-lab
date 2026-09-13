@@ -35,7 +35,7 @@ Build a simple optical imaging model in Python and study how an ideal point sour
 
 ## Example Result
 
-![Aperture blur comparison](figures/aperture_blur_comparison.png)
+![Aperture blur comparison](aperture_blur_comparison.png)
 
 ## Tools
 
