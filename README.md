@@ -63,7 +63,7 @@ The aperture was kept fixed while only defocus was varied, isolating the effect 
 
 ![Defocus PSF sweep](defocus_psf_sweep.png)
 
-![Defocus image sweep](defocus_image_sweep.png)
+![Defocus image sweep](defocus_sweep.png)
 
 ![Defocus MSE](defocus_mse.png)
 
