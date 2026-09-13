@@ -2,6 +2,10 @@
 
 A computational imaging project exploring how diffraction, defocus, and optical aberrations affect image formation.
 
+The central workflow is:
+
+**Optical system parameters → PSF → Image formation → Image quality**
+
 ## Goal
 
 Build a simple optical imaging model in Python and study how an ideal point source becomes a point spread function (PSF), and how that PSF changes real images.
@@ -33,9 +37,37 @@ Build a simple optical imaging model in Python and study how an ideal point sour
 - Compared image blur for different aperture sizes
 - Observed that a smaller aperture produces a broader PSF and stronger diffraction blur
 
+The aperture radius was varied while defocus was kept at zero, isolating the effect of diffraction.
+
+**Aperture size → Diffraction PSF → Image sharpness**
+
 ## Example Result
 
 ![Aperture blur comparison](aperture_blur_comparison.png)
+
+### 02 — Defocus
+
+- Fixed the aperture radius at `BASE_RADIUS = 0.35`
+- Varied the defocus parameter while keeping the aperture constant
+- Modeled defocus using a quadratic phase term in the pupil plane
+- Computed the corresponding PSF for multiple defocus values
+- Applied each PSF to the same input image using convolution
+- Observed that stronger defocus produces a broader PSF and more visible image blur
+- Quantified image degradation using Mean Squared Error (MSE) relative to the in-focus image
+
+The aperture was kept fixed while only defocus was varied, isolating the effect of focus error.
+
+**Defocus → PSF change → Image degradation**
+
+## Example Result
+
+![Defocus PSF sweep](defocus_psf_sweep.png)
+
+![Defocus image sweep](defocus_image_sweep.png)
+
+![Defocus MSE](defocus_mse.png)
+
+The original image is the ideal input, while the in-focus image has already passed through the finite-aperture optical system and therefore includes diffraction-limited blur.
 
 ## Tools
 
